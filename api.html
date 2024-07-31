@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <main></main>
+    <script>
+        function search(searchWord){
+            var nasaArry = [];
+            var card= '';
+            var url = 'https://api.nasa.gov/planetary/apod?api_key
+            fetch(url)
+            .then(response => {response.json();})//convert json into a regular object/arry
+            .then(nasaData =>){
+            nasaArry= nasaData.collection.item; //focus in on just the of the data that we need
+            nasaArry.forEach(item => card += // loop thru the nasa arry and add it to the card temple literal variable
+            <div class= "card card-compact m-4 w-96 bg-base-100 shadow-x1">
+                <figure><img src= "${item.links[0].href}"></figure>
+
+                </div>
+            document.getElementById('output').innerHtml = card; //send the card to the output/display html
+
+
+            });
+        }
+    </script>
+    <div class="card card-compact bg-base-100 w-96 shadow-xl">
+  <figure>
+    <img src= "${item.links[0].}"   alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+   
+  </div>
+</div>
+    
+</body>
+</html>
